@@ -1,0 +1,161 @@
+//Root container
+.ww_root {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 10em;
+  left: 20%;
+}
+
+//Info container (upper part of widget)
+.info {
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  border-width: 4px 4px 0px 4px;
+  border-style: solid;
+  border-color: rgb(110, 124, 144);
+  width: 520px;
+  height: 50px;
+  background-color: rgb(122, 132, 146);
+  border-radius: 10px 10px 0 0;
+  img {
+    display: block;
+    position: absolute;
+    width: 45%;
+    top: -35px;
+    left: 26%;
+  }
+}
+
+.city {
+  display: block;
+  position: absolute;
+  width: 50%;
+  top: 10px;
+  left: 0px;
+  margin: 0;
+  padding: 0;
+  h3,
+  h4 {
+    display: block;
+    position: relative;
+    margin: 0;
+    width: 75%;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px
+  }
+  h3 {
+    padding-top: 5px;
+    padding-bottom: 15px;
+    color: rgba(235, 235, 235, 1);
+  }
+  h4 {
+    color: rgba(235, 235, 235, 0.7);
+  }
+}
+
+.temp {
+  position: absolute;
+  display: block;
+  left: 72%;
+  top: -20px;
+  margin: 0;
+  font-size: 9rem;
+  font-weight: 100;
+  font-stretch: extra-condensed;
+  color: rgba(235, 235, 235, 0.8);
+  font-stretch: ultra-condensed;
+}
+
+.temp:after {
+  content: '\00b0';
+}
+
+//list container
+.w_list {
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  height: 230px;
+  width: 520px;
+  top: 50px;
+  background-color: rgb(46, 67, 98);
+  background: linear-gradient(rgb(46, 67, 98) 50%, rgb(75, 96, 127));
+  border-width: 0px 4px 4px 4px;
+  border-style: solid;
+  border-color: rgb(100, 118, 143);
+  border-radius: 0px 0px 10px 10px;
+  overflow: hidded;
+}
+
+//weather item
+.w_item {
+  margin: 0;
+  padding: 3% 0 0 0;
+  position: relative;
+  width: 20%;
+  height: 70%;
+  float: left;
+  top: 25%;
+  img {
+    display: block;
+    margin: 0;
+    width: 75%;
+    padding-left: 10%;
+    padding-top: 5%;
+  }
+  h4,
+  h3 {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+  h4 {
+    padding-top: 5%;
+  }
+  h4:after {
+    content: '\00b0';
+  }
+  h3 {
+    height: 25%;
+    padding-top: 6%;
+    background-color: rgba(58, 83, 125, 1);
+    color: rgba(235, 235, 235, 0.9);
+  }
+}
+
+.w_item>h4:nth-child(odd) {
+  color: rgba(235, 235, 235, 0.9);
+}
+
+.w_item>h4:nth-child(even) {
+  color: rgba(200, 200, 200, 0.9);
+}
+
+.top_border {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-top: 2px solid rgba(42, 61, 89, 1);
+  border-bottom: 2px solid rgba(78, 100, 138, 1);
+}
+
+.right_border {
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  position: relative;
+  float: right;
+  border-left: 2px solid rgba(61, 83, 113, 1);
+  border-right: 2px solid rgba(48, 69, 96, 1);
+}
+
+no_border {
+  display: none;
+}
