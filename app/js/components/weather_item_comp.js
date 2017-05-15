@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import mix from '../mixins/weather_mixin'
+import PropTypes from 'prop-types'; 
 
-class WItemComp extends Component {
 
-	render() {
-	//find icon by weather id
-		let icon = mix.getIcon(this.props.w_id);
+
+const WItemComp = ({...props}) => {
+		//find icon by weather id
+		let icon = mix.getIcon(props.w_id);
 	//round max&min temperature
-		let max_t = Math.floor(this.props.h);
-		let min_t = Math.floor(this.props.l);
+		let max_t = Math.floor(props.h);
+		let min_t = Math.floor(props.l);
 	//Get day of week
-		let day = mix.getDay(this.props.date);
+		let day = mix.getDay(props.date);
 	//add "no_border" style to last border span
-		let style = this.props.index<4?'right_border':'no_border';
+		let style = props.index<4?'right_border':'no_border';
+
 		return (
 			<div className="w_item">
 				<span className="top_border"></span>
@@ -23,15 +25,6 @@ class WItemComp extends Component {
 				<h4 className="night_temp">{min_t}</h4>
 			</div>
 		);
-	}
-}
-
-WItemComp.propTypes = {
-	date: React.PropTypes.number,
-	h: React.PropTypes.number,
-	l: React.PropTypes.number,
-	index: React.PropTypes.number,
-	w_id: React.PropTypes.number
 }
 
 export default WItemComp;

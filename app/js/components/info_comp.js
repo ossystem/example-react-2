@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //usefull functions
 import mix from '../mixins/weather_mixin';
-
+import PropTypes from 'prop-types'; 
 
 class InfoComp extends Component {
 
@@ -26,10 +26,10 @@ class InfoComp extends Component {
 }
 
 InfoComp.propTypes = {
-	city: React.PropTypes.string,
-	w_id: React.PropTypes.number,
-	dt: React.PropTypes.number,
-	temp:React.PropTypes.number
+	city: PropTypes.string,
+	w_id: PropTypes.number,
+	dt: PropTypes.number,
+	temp:PropTypes.number
 }
 
 export default InfoComp;

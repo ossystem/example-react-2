@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import InfoComp from './info_comp';
 import WListComp from './weather_list_comp';
+import PropTypes from 'prop-types'; 
 
 class WWRootComp extends Component {
+
+	
 
 	componentDidMount() {
 		this._getForecastForYou();
 	}
-
 //get weather by geolocation data of your browser
 	_getForecastForYou(){
-
 		let that = this;
 		//options
 		let options = {
@@ -32,9 +33,16 @@ class WWRootComp extends Component {
 			console.warn(err.code+':'+err.message);
 			alert(err.message);
 		};
+
 		//get geolocation info
-		navigator.geolocation.getCurrentPosition(success, error, options);
-		
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(success, error, options);
+		}else{
+			let crd = {};
+			crd.latitude=50.458347;
+			crd.longitude=30.501769;
+			that.props.getForecast(crd);
+		}
 	}
 
 	render() {
@@ -47,10 +55,10 @@ class WWRootComp extends Component {
 			let dt = f.list[0].dt;
 			return (
 				<div className="ww_root">
-					<InfoComp city={city}
-										temp={temp}
-										w_id={w_id}
-										dt={dt}/>
+					<InfoComp 	city={city}
+								temp={temp}
+								w_id={w_id}
+								dt={dt}/>
 					<WListComp list={list}/>
 				</div>
 			);
@@ -61,9 +69,9 @@ class WWRootComp extends Component {
 }
 
 WWRootComp.PropTypes = {
-	forecast: React.PropTypes.object,
-	loading_forecast: React.PropTypes.bool,
-	getForecast: React.PropTypes.func
+	forecast: PropTypes.object,
+	loading_forecast: PropTypes.bool,
+	getForecast: PropTypes.func
 }
 
 export default WWRootComp;
